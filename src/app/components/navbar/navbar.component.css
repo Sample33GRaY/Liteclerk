@@ -82,3 +82,43 @@
   transform: scale(0.95);
 }
 
+///////////////////LITECLERK ICON///////////////////////
+
+.logo-container:hover .logo-img,
+.logo-container:hover .logo-text {
+  transform: translateY(-1px); 
+}
+
+/* --- LOGO GLOW & SCALE --- */
+.logo-container:hover .logo-text {
+  color: #071d1f !important;
+  text-shadow: 
+    0 0 10px rgba(0, 242, 254, 0.9),
+    0 0 25px rgba(0, 242, 254, 0.5);
+  transform: scale(1.05); /* Scales text */
+}
+
+.logo-container:hover .logo-img {
+  filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.9));
+  transform: scale(1.1); /* Scales icon slightly more */
+}
+
+/* Base transitions for smooth movement */
+.logo-text, .logo-img {
+  display: inline-block;
+  transition: all 0.3s ease-out;
+}
+
+/* --- BUTTON GLOW & SCALE --- */
+.glow-button {
+  transition: all 0.3s ease-out;
+}
+
+.glow-button:hover {
+  transform: scale(1.08); /* Grows the button */
+  filter: brightness(1.2); /* Makes colors pop */
+  box-shadow: 
+    0 0 20px rgba(0, 242, 254, 0.8),
+    0 0 40px rgba(0, 242, 254, 0.4);
+  animation: none; /* Stops the pulse animation while hovering */
+}
