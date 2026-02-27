@@ -43,15 +43,20 @@
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 320px;
-  aspect-ratio: 1/1;
+  max-width: 400px;
   background: linear-gradient(135deg, #111827, #000);
   border-radius: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
+  padding: 1.5rem;
+}
+.icon-box img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 .img-overlay {
   position: absolute;

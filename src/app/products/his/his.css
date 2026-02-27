@@ -94,3 +94,12 @@
   background: linear-gradient(to bottom, transparent, #00f2ff, #00ff9c, transparent);
   animation: move-down 10s linear infinite;
 }
+/* Hide scrollbar while keeping functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}

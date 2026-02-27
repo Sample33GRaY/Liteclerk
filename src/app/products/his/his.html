@@ -19,8 +19,52 @@ Cloud payroll and HR management system that simplifies employee records, attenda
         </div>
     </section>
 
-    <!-- Smart Workflow Section -->
-    <section class="py-20 bg-slate-900/30 border-y border-white/5 relative z-10 px-6">
+    <!-- Horizontal Scrolling Dashboard Section -->
+    <section class="py-20 relative z-10 px-6">
+        <div class="max-w-6xl mx-auto">
+
+            <!-- Carousel Container -->
+            <div class="relative flex items-center justify-center gap-8">
+                <!-- Previous Button -->
+                <button (click)="prevSlide()" 
+                        class="absolute left-0 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all hover:scale-110">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+
+                <!-- Carousel Slide -->
+                <div class="flex-1 max-w-2xl">
+                    <div class="glass-card p-8 border-white/10 shadow-2xl h-96 flex flex-col items-center justify-between">
+                        <p class="text-center font-semibold text-2xl tracking-wide" style="color: #00f2c3;">{{ slides[currentSlide].title }}</p>
+                        <img [src]="slides[currentSlide].image" 
+                             [alt]="slides[currentSlide].alt"
+                            class="rounded-xl w-full border border-white/5 opacity-90 h-auto max-h-[260px] object-contain flex-1"/>
+                    </div>
+                </div>
+
+                <!-- Next Button -->
+                <button (click)="nextSlide()" 
+                        class="absolute right-0 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all hover:scale-110">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Slide Indicators -->
+            <div class="flex justify-center gap-3 mt-8">
+                <button *ngFor="let slide of slides; let i = index"
+                        (click)="currentSlide = i"
+                        [class.bg-primary]="i === currentSlide"
+                        [class.bg-white/30]="i !== currentSlide"
+                        class="w-2 h-2 rounded-full transition-all duration-300"></button>
+            </div>
+        </div>
+    </section>
+
+
+        <section class="py-20 bg-slate-900/30 border-y border-white/5 relative z-10 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
 <h2 class="font-sans text-3xl md:text-5xl font-black mb-6 tracking-tight text-slate-300">
@@ -109,6 +153,4 @@ Everything you need to manage employee lifecycle from hire to retire in one unif
 </section>
 
 <app-cta></app-cta>
-
-
-            
+</div>
