@@ -1,0 +1,13 @@
+/* Social Media Links Glow Effect */
+.social-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  text-shadow: 0 0 10px rgba(0, 242, 195, 0.8),
+               0 0 20px rgba(0, 242, 195, 0.7),
+               0 0 30px rgba(0, 242, 195, 0.6),
+               0 0 40px rgba(0, 242, 195, 0.5),
+               0 0 50px rgba(0, 242, 195, 0.4);
+}

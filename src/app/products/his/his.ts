@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
 })
 export class His {
   currentSlide = 0;
+  selectedImage: string | null = null;
+  
   slides = [
     {
       title: 'PAYSLIP',
@@ -34,5 +36,13 @@ export class His {
 
   prevSlide() {
     this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+  }
+
+  openImageModal(imageSrc: string) {
+    this.selectedImage = imageSrc;
+  }
+
+  closeImageModal() {
+    this.selectedImage = null;
   }
 }
