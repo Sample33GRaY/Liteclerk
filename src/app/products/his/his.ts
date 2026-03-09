@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { Cta } from "../../components/cta/cta";
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-his',
-  imports: [Cta, CommonModule],
+  imports: [Cta, CommonModule, RouterLink],
   templateUrl: './his.html',
   styleUrl: './his.css',
 })

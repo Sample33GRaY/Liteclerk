@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Required for *ngFor and [class]
+import { RouterLink } from '@angular/router';
 import { Cta } from "../../components/cta/cta";
 
 @Component({
   selector: 'app-partners',
   standalone: true,
-  imports: [Cta, CommonModule], 
+  imports: [Cta, CommonModule, RouterLink], 
   templateUrl: './partners.html',
   styleUrl: './partners.css',
 })

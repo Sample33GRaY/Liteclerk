@@ -44,6 +44,7 @@
 .gradient-button {
     @apply bg-gradient-to-r from-primary to-secondary font-bold px-8 py-4 rounded-full transition-all duration-300;
     box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+    cursor: pointer;
 }
 
 .gradient-button:hover {
