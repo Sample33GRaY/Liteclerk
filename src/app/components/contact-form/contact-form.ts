@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-contact-form',
@@ -8,13 +10,49 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrl: './contact-form.css',
 })
 export class ContactForm {
-  onSubmit(form: NgForm): void {
+  submitted = false;
+  isSubmitting = false;
+  submitSuccess = false;
+  submitError = '';
+
+  constructor(private readonly http: HttpClient) {}
+
+  async onSubmit(form: NgForm): Promise<void> {
+    this.submitted = true;
+    this.submitSuccess = false;
+    this.submitError = '';
+
     if (form.invalid) {
       form.control.markAllAsTouched();
       return;
     }
 
-    // Keep placeholder behavior until real submit integration is added.
-    form.resetForm();
+    const { name, phone, email, message } = form.value as {
+      name: string;
+      phone: string;
+      email: string;
+      message: string;
+    };
+
+    this.isSubmitting = true;
+    try {
+      await firstValueFrom(
+        this.http.post('/api/contact', {
+          name: name.trim(),
+          phone: phone.trim(),
+          email: email.trim(),
+          message: message.trim(),
+        }),
+      );
+
+      form.resetForm();
+      this.submitted = false;
+      this.submitSuccess = true;
+    } catch {
+      this.submitError =
+        'Unable to send your message right now. Please try again in a few minutes.';
+    } finally {
+      this.isSubmitting = false;
+    }
   }
 }

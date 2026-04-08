@@ -23,6 +23,23 @@
         </p>
 
         <button class="neon-btn" [routerLink]="['/contact']">SCHEDULE A FREE DEMO</button>
+
+        <h1 class="text-3xl md:text-4xl font-extrabold text-center text-white mt-30 mb-8"><span class="cyber-gradient-text">OUR GROWING PARTNERS!</span></h1>
+
+                <!-- MarqueeSection -->
+                <!-- The marquee-container handles the background and the edge fading via mask-image -->
+                <div class="marquee-container">
+                    <div class="marquee-track flex gap-24 items-center">
+                        <!-- Loop through logos twice for a seamless infinite loop -->
+                        <ng-container *ngFor="let logo of [...logos, ...logos]">
+                            <img
+                                [src]="logo.src"
+                                [alt]="logo.alt"
+                                [class]="'logo-marquee-item ' + (logo.sizeClass || '') + ' ' + logo.glowClass"
+                            />
+                        </ng-container>
+                    </div>
+                </div>
     </div>
 </section>
 
@@ -38,36 +55,42 @@
 
 
     <!-- Headers -->
-
     <h2 class="text-3xl md:text-5xl font-extrabold text-center text-white mb-6">
       Real Businesses, Real Results<span class="text-gradient drop-shadow-[0_0_15px_rgba(0,242,255,0.4)]"></span>
     </h2>
 
-
     <p class="max-w-2xl mx-auto text-center text-slate-400 text-lg mb-16">
 See the tangible impact of our strategies through the diverse businesses we’ve helped scale and succeed.    </p>
 
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                <!-- Logo Tiles with Glass Card Styling -->
-                <div class="logo-tile glass-card h-32 rounded-xl flex items-center justify-center group cursor-pointer">
-                    <img alt="Shopify" class="h-10 opacity-30 group-hover:opacity-100 group-hover:scale-110 grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com"/>
+            <!-- Results Slider -->
+            <div #resultsSlider
+                 (scroll)="updateResultsDots(resultsSlider)"
+                 (mouseenter)="pauseResultsAutoScroll()"
+                  (mousemove)="handleHoverSlide($event, resultsSlider)"
+                  (mouseleave)="onResultsMouseLeave()"
+                 class="flex gap-6 overflow-x-auto no-scrollbar justify-start md:justify-start pb-12 pt-4 scroll-smooth mx-auto">
+                <div *ngFor="let card of resultsLoopCards" class="w-64 h-40 md:w-72 md:h-44 rounded-3xl overflow-hidden glass-card group relative shrink-0 flex items-center justify-center">
+                    <img [alt]="card.alt" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 cursor-pointer" [src]="card.src" (click)="openImagePreview(card.src, card.alt)"/>
                 </div>
-                <div class="logo-tile glass-card h-32 rounded-xl flex items-center justify-center group cursor-pointer">
-                    <img alt="FedEx" class="h-8 opacity-30 group-hover:opacity-100 group-hover:scale-110 grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbNSdxxbEerna1aNJQsl3kqrCmZksJ6xhojVYHovFUv42NZDLwKTozurZdMJ9aWZiZQZQaNIorj2Sqyx7L9Gj49N-jiFbpK5ZkPnW0VksF0A965s089GFqldv1FGvlNYEylWL-Lj8fO5J8XWzfzvMzykrft8bS-lNsIfrA7k9KRa2YXVjdx5v4KQJ-8bJUaxF3ofEh-XemoLD6yd0rWIrha_CZVgSB983g95JgHoax38UcXAfVHE0luvSKBg8w_gWrw5kYqWmNyGjk"/>
+            </div>
+
+            <div *ngIf="selectedPreviewImage" class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/75 backdrop-blur-sm p-4 md:p-6" (click)="closeImagePreview()">
+                <div class="relative w-full max-w-5xl flex items-center justify-center" (click)="$event.stopPropagation()">
+                    <img [src]="selectedPreviewImage.src" [alt]="selectedPreviewImage.alt" class="max-w-[74vw] max-h-[64vh] md:max-w-[70vw] md:max-h-[68vh] object-contain rounded-2xl shadow-[0_25px_80px_rgba(0,0,0,0.55)] cursor-pointer" (click)="closeImagePreview()" />
                 </div>
-                <div class="logo-tile glass-card h-32 rounded-xl flex items-center justify-center group cursor-pointer">
-                    <img alt="IKEA" class="h-6 opacity-30 group-hover:opacity-100 group-hover:scale-110 grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo9_5shKbqaaIVi5SkOhPA8XIxQVIpNaKRUn0FPoqhakPkisqZCamkeJIdBkBztcRy4i2TCwZWxMIcy4pJr0ZGYEGXxzZ6K79QB8YhuYvqzz9-iID4umtf7Rho00iB3yzZrLdIa62jJPlJlWq-aheM6nWP2RGSiRiFe_Jzop13z5OPY6dOQDNcEY-xZs_E1reVB047gF8i8B0ZGrnhh9Zf8WcGmSDxKnr4K9sc1ZxCDQXJzKRjLnNnoyTgXL5OmTXOzoXdEEvcep5C"/>
-                </div>
-                <div class="logo-tile glass-card h-32 rounded-xl flex items-center justify-center group cursor-pointer">
-                    <img alt="Nike" class="h-10 opacity-30 group-hover:opacity-100 group-hover:scale-110 grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK1nRzr8cYou5WqUXmQKX4_zbkui036eFC_G5NCn7kP4pQ3U0rsLd-QC1cnWdjTwFs4qBlcKYJkcaVDg-KFfQAncNWaGtdNm88hBAMRSHHwcHTq4Z_ceUsSC1JdcGTE5d-6TX6NM-69H_enLfuUajTDGnZFMrR1sC9jEcK4h491mJYhusiFd3YQiOc4-dyNpaedviBLp3IlIw_m1af7_0S3mbkS7oGCGsAcse2Xlz8hHafd88y68YPm4tSfNhL_tiiFPFJQVMA5shz"/>
-                </div>
-                <!-- ... Repeat for 6 items ... -->
+            </div>
+
+            <div class="flex justify-center gap-3 mt-1">
+                <button *ngFor="let item of resultsCards; let i = index"
+                        (click)="scrollResultsToIndex(i, resultsSlider)"
+                        [class.active-dot]="resultsActiveIndex === i"
+                        class="w-3 h-3 rounded-full bg-white/10 transition-all duration-300 hover:bg-white/30">
+                </button>
             </div>
         </div>
     </section>
 
-<section class="py-32 relative z-10 px-6 overflow-hidden">
+<section class="py-32 relative z-10 px-6">
     <div class="max-w-7xl mx-auto overflow-visible">
         
         <!-- Header Section -->
@@ -76,39 +99,35 @@ See the tangible impact of our strategies through the diverse businesses we’ve
                 Liteclerk <span class="cyber-gradient-text">in Action</span>
             </h2>
             <p class="max-w-2xl mx-auto text-center text-slate-400 text-lg mb-16">
-Explore the real-world impact of LiteClerk as we help businesses automate, scale, and thrive</p>
+            Explore the real-world impact of LiteClerk as we help businesses automate, scale, and thrive</p>
         </div>
         
         <!-- Updated Slider with (scroll) event and Template Ref #slider -->
-        <div #slider 
-             (scroll)="updateDots(slider)"
+           <div #slider 
+               (scroll)="updateDots(slider)"
+                             (mouseenter)="pauseAutoScroll()"
+               (mousemove)="handleHoverSlide($event, slider)"
+                             (mouseleave)="onSliderMouseLeave()"
              class="flex gap-6 overflow-x-auto no-scrollbar justify-start md:justify-start pb-12 pt-12 scroll-smooth mx-auto">
-            
-            <!-- Use *ngFor in real Angular, but keeping your static structure -->
-            <div class="w-64 h-64 md:w-72 md:h-72 rounded-3xl overflow-hidden glass-card group relative shrink-0">
-                <img class="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-110" src="https://lh3.googleusercontent.com..." />
-            </div>
-            <div class="w-64 h-64 md:w-72 md:h-72 rounded-3xl overflow-hidden glass-card group relative shrink-0">
-                <img class="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-110" src="https://lh3.googleusercontent.com..." />
-            </div>
-            <div class="w-64 h-64 md:w-72 md:h-72 rounded-3xl overflow-hidden glass-card group relative shrink-0">
-                <img class="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-110" src="https://lh3.googleusercontent.com..." />
-            </div>
-            <div class="w-64 h-64 md:w-72 md:h-72 rounded-3xl overflow-hidden glass-card group relative shrink-0">
-                <img class="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-110" src="https://lh3.googleusercontent.com..." />
-            </div>
-            <div class="w-64 h-64 md:w-72 md:h-72 rounded-3xl overflow-hidden glass-card group relative shrink-0">
-                <img class="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-110" src="https://lh3.googleusercontent.com..." />
+                
+            <div *ngFor="let card of actionLoopCards" class="w-64 h-64 md:w-72 md:h-72 rounded-3xl overflow-hidden glass-card group relative shrink-0">
+                <img class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 cursor-pointer" [src]="card.src" [alt]="card.alt" (click)="openImagePreview(card.src, card.alt)" />
             </div>
         </div>
 
         <!-- Dot Indicators -->
         <div class="flex justify-center gap-3 mt-8">
-            <button *ngFor="let item of [0,1,2,3,4]; let i = index" 
+            <button *ngFor="let item of actionCards; let i = index" 
                     (click)="scrollToIndex(i, slider)"
                     [class.active-dot]="activeIndex === i"
                     class="w-3 h-3 rounded-full bg-white/10 transition-all duration-300 hover:bg-white/30">
             </button>
+        </div>
+
+        <div *ngIf="selectedPreviewImage" class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/75 backdrop-blur-sm p-4 md:p-6" (click)="closeImagePreview()">
+            <div class="relative w-full max-w-5xl flex items-center justify-center" (click)="$event.stopPropagation()">
+                <img [src]="selectedPreviewImage.src" [alt]="selectedPreviewImage.alt" class="max-w-[74vw] max-h-[64vh] md:max-w-[70vw] md:max-h-[68vh] object-contain rounded-2xl shadow-[0_25px_80px_rgba(0,0,0,0.55)] cursor-pointer" (click)="closeImagePreview()" />
+            </div>
         </div>
     </div>
     <app-cta></app-cta>

@@ -5,11 +5,57 @@
   --primary: #00f2c3;
   --accent-blue: #00d2ff;
   --secondary: #00d2ff;
+  --glow-aws: rgba(0, 242, 254, 0.6);
+  --glow-syspro: rgba(0, 255, 156, 0.6);
+  --glow-white: rgba(255, 255, 255, 0.6);
+  --glow-azure: rgba(0, 120, 215, 0.6);
+  --glow-discord: rgba(88, 101, 242, 0.6);
+  --glow-meta: rgba(0, 164, 255, 0.6);
   
   display: block;
   width: 100%;
   max-width: 100vw;
   overflow-x: hidden; /* Stops sudden horizontal scrolling */
+}
+
+.marquee-container {
+  @apply relative flex overflow-hidden py-12;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+  @apply flex items-center;
+  width: max-content;
+  animation: partners-marquee 28s linear infinite;
+  will-change: transform;
+}
+
+.marquee-group {
+  @apply flex items-center gap-24;
+  padding-right: 6rem;
+  flex-shrink: 0;
+}
+
+@keyframes partners-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.logo-marquee-item {
+  @apply h-16 md:h-20 w-auto opacity-50 brightness-0 invert transition-all duration-500 cursor-pointer hover:brightness-100 hover:invert-0 hover:opacity-100;
+}
+
+.logo-marquee-item.keep-original-color {
+  @apply brightness-100 invert-0 opacity-100;
+}
+
+.logo-marquee-item.rounded-logo {
+  border-radius: 0.75rem;
 }
 
 /* 2. Indicators & Dots */
