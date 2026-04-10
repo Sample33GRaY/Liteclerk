@@ -76,63 +76,130 @@ export class Partners implements AfterViewInit, OnDestroy {
     { src: '/icons/partners/tgp.svg', alt: 'TGP', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-syspro)]' },
     { src: '/icons/partners/cafe_de_acasia.svg', alt: 'CAFE_DE_ACASIA', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-white)]' },
     { src: '/icons/partners/casa_verde.svg', alt: 'CASA_VERDE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-azure)]' },
+    { src: '/icons/partners/fruitas.svg', alt: 'FRUITAS', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
     { src: '/icons/partners/mr_a.svg', alt: 'MR_A', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
     { src: '/icons/partners/jm_poultry.svg', alt: 'JM_POULTRY', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/soy&bean.svg', alt: 'SOY&BEAN', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/ap_residences.svg', alt: 'AP_RESIDENCES', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/han_pork.svg', alt: 'HAN_PORK', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/wagenborg_cafe.svg', alt: 'WAGENBORG_CAFE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/handuraw_pizza.svg', alt: 'HANDURAW_PIZZA', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/papsys_bbq.svg', alt: 'PAPSYS_BBQ', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/barnoks.svg', alt: 'BARNOKS', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/balai_pandesal.svg', alt: 'BALAI_PANDESAL', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/irish_beautywellness.svg', alt: 'IRISH_BEAUTYWELLNESS', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/smoque.svg', alt: 'SMOQUE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/purchasers.svg', alt: 'PURCHASERS', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/dan_enrico.svg', alt: 'DAN_ENRICO', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/executive_restobar.svg', alt: 'EXECUTIVE_RESTOBAR', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/ambiance.svg', alt: 'AMBIENCE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/the_faultline.svg', alt: 'THE_FAULTLINE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/wellnessland.svg', alt: 'WELLNESSLAND', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
     { src: '/icons/partners/sonnets.svg', alt: 'SONNETS', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-meta)]' },
-    { src: '/icons/partners/ocean101.svg', alt: 'OCEAN101', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-meta)]' },
-    { src: '/icons/partners/luna_libro.svg', alt: 'LUNA_LIBRO', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-meta)]' },
-    { src: '/icons/partners/fur_paws.svg', alt: 'FUR_PAWS', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-meta)]' },
-    { src: '/icons/partners/cafe_luke.svg', alt: 'CAFE_LUKE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-meta)]' },
-    { src: '/icons/partners/sgd_tacloban.svg', alt: 'SGD_TACLOBAN', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-meta)]' },
-    { src: '/icons/partners/ronaldtesa.svg', alt: 'RONALDTESA', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-meta)]' },
+    { src: '/icons/partners/tapawarma.svg', alt: 'TAPA_WARMA', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/tag_minimart.svg', alt: 'TAG_MINIMART', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/shopway.svg', alt: 'SHOPWAY', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/seoul_pharmacy.svg', alt: 'SEUL_PHARMACY', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/pach_pharmacy.svg', alt: 'PACH_PHARMACY', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/doo_ggi.svg', alt: 'Doo Ggi', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/donjjang.svg', alt: 'DONJJANG', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/dahon_cafe.svg', alt: 'DAHON_CAFE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/cafe_mimi.svg', alt: 'CAFE_MIMI', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
     { src: '/icons/partners/mec.svg', alt: 'MEC', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-meta)]' },
     { src: '/icons/partners/big_brew.svg', alt: 'BIG_BREW', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-meta)]' },
     { src: '/icons/partners/nutricare.svg', alt: 'NUTRICARE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-meta)]' },
     { src: '/icons/partners/bakoo.svg', alt: 'BAKOO', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-white)]' },
     { src: '/icons/partners/elora_supermarket.svg', alt: 'ELORA', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-white)]', sizeClass: 'keep-original-color' },
-    { src: '/icons/partners/soy&bean.svg', alt: 'SOY&BEAN', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
-    { src: '/icons/partners/ap_residences.svg', alt: 'AP_RESIDENCES', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
-    { src: '/icons/partners/han_pork.svg', alt: 'HAN_PORK', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
-    { src: '/icons/partners/handuraw_pizza.svg', alt: 'HANDURAW_PIZZA', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
-    { src: '/icons/partners/smoque.svg', alt: 'SMOQUE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
-    { src: '/icons/partners/purchasers.svg', alt: 'PURCHASERS', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
-    { src: '/icons/partners/dan_enrico.svg', alt: 'DAN_ENRICO', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/iae_corporation.svg', alt: 'IAE_CORPORATION', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/b_restaurant.svg', alt: 'B_RESTAURANT', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
     { src: '/icons/partners/durhan.svg', alt: 'DURHAN', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
     { src: '/icons/partners/happilen_diner.svg', alt: 'HAPPILEN_DINER', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
     { src: '/icons/partners/prime_global.svg', alt: 'PRIME_GLOBAL', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
     { src: '/icons/partners/sanjo_medipharma.svg', alt: 'SANJO_MEDIPHARMA', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
     { src: '/icons/partners/color_ideas.svg', alt: 'COLOR_IDEAS', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/cebu_marine_industry.svg', alt: 'CEBU_MARINE_INDUSTRY', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/medilife_pharmacy.svg', alt: 'MEDILIFE_PHARMACY', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
     { src: '/icons/partners/green_kiosk.svg', alt: 'GREEN_KIOSK', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
     { src: '/icons/partners/mylora_agrivet.svg', alt: 'MYLORA_AGRIVET', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
     { src: '/icons/partners/medisential.svg', alt: 'MEDISENTIAL', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/efg_holding.svg', alt: 'EFG_HOLDING', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
     { src: '/icons/partners/manarang_vergara.svg', alt: 'MANARANG_VERGARA', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
-    { src: '/icons/partners/ambiance.svg', alt: 'AMBIENCE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/maystar_pharmacy.svg', alt: 'MAYSTAR_PHARMACY', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
     { src: '/icons/partners/abomar.svg', alt: 'ABOMAR', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
     { src: '/icons/partners/cebu_microasia.svg', alt: 'CEBU_MICROASIA', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
     { src: '/icons/partners/mf_computer.svg', alt: 'MF_COMPUTER', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
-    
-    { src: '/icons/partners/happilen_diner.svg', alt: 'HAPPILEN_DINER', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
-    { src: '/icons/partners/happilen_diner.svg', alt: 'HAPPILEN_DINER', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
-    { src: '/icons/partners/happilen_diner.svg', alt: 'HAPPILEN_DINER', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
-    { src: '/icons/partners/happilen_diner.svg', alt: 'HAPPILEN_DINER', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
-    { src: '/icons/partners/happilen_diner.svg', alt: 'HAPPILEN_DINER', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
-    { src: '/icons/partners/happilen_diner.svg', alt: 'HAPPILEN_DINER', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
-    { src: '/icons/partners/happilen_diner.svg', alt: 'HAPPILEN_DINER', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
-    { src: '/icons/partners/happilen_diner.svg', alt: 'HAPPILEN_DINER', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
-    { src: '/icons/partners/happilen_diner.svg', alt: 'HAPPILEN_DINER', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
-    { src: '/icons/partners/happilen_diner.svg', alt: 'HAPPILEN_DINER', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
-    { src: '/icons/partners/happilen_diner.svg', alt: 'HAPPILEN_DINER', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
-    { src: '/icons/partners/happilen_diner.svg', alt: 'HAPPILEN_DINER', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
-    { src: '/icons/partners/happilen_diner.svg', alt: 'HAPPILEN_DINER', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/ocean101.svg', alt: 'OCEAN101', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-meta)]' },
+    { src: '/icons/partners/amarah_minimart.svg', alt: 'AMARAH_MINIMART', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/sgd_tacloban.svg', alt: 'SGD_TACLOBAN', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-meta)]' },
+    { src: '/icons/partners/ahmazing.svg', alt: 'AHMAZING', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/printa_graphic.svg', alt: 'PRINTA_GRAPHIC', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/printa_graphics_baybay.svg', alt: 'PRINTA_GRAPHICS_BAYBAY', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/manong_berto.svg', alt: 'MANONG_BERTO', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/ronaldtesa.svg', alt: 'RONALDTESA', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-meta)]' },
+    { src: '/icons/partners/mfr_marketing.svg', alt: 'MFR_MARKETING', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/kaya_restaurant.svg', alt: 'KAYA_RESTAURANT', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/kaya_korean.svg', alt: 'KAYA_KOREAN', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/employees_multipurpose.svg', alt: 'EMPLOYEES_MULTIPURPOSE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/kke.svg', alt: 'KKE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/jdn_pharmacy.svg', alt: 'JDN_PHARMACY', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/sta_barbara.svg', alt: 'STA_BARBARA', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/store_24.svg', alt: 'STORE_24', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/jepoys_grill.svg', alt: 'JEPOYS_GRILL', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/jc_gardencafe.svg', alt: 'JC_GARDENCAFE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/gemca.svg', alt: 'GEMCA', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/58_ave.svg', alt: '58_AVE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/road_safe.svg', alt: 'ROAD_SAFE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/yy_houseware.svg', alt: 'YY_HOUSEWARE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/kalina_grocery.svg', alt: 'KALINA_GROCERY', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/parola.svg', alt: 'PAROLA', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/mist_mountain.svg', alt: 'MIST_MOUNTAIN', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/kenzen_trading.svg', alt: 'KENZEN_TRADING', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/alagri_pet.svg', alt: 'ALAGRI_PET', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/libres_pharmacy.svg', alt: 'LIBRES_PHARMACY', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/maple.svg', alt: 'MAPLE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/new_sacredheart.svg', alt: 'NEW_SACREDHEART', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/dcp_protech.svg', alt: 'DCP_PROTECH', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/an_office.svg', alt: 'AN_OFFICE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/oneaid_pharmacy.svg', alt: 'ONEAID_PHARMACY', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/m&r_community.svg', alt: 'M&R_COMMUNITY', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/garden_envy.svg', alt: 'GARDEN_ENVY', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/canete_pharmacy.svg', alt: 'CANETE_PHARMACY', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/kmart_24.svg', alt: 'Kmart_24', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/vig_hardware.svg', alt: 'VIG_HARDWARE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/chris_pharmacy.svg', alt: 'CHRIS_PHARMACY', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/cabs_care.svg', alt: 'CABS_CARE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/thai_boran.svg', alt: 'THAI_BORAN', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/12k_ktv.svg', alt: '12K_KTV', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/siargao_bleu.svg', alt: 'SIARIAO_BLEU', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/58_mart.svg', alt: '58_MART', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/wok_remedy.svg', alt: 'WOK_REMEDY', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/red_lotus.svg', alt: 'RED_LOTUS', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/cpils.svg', alt: 'CPILS', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/entings_special.svg', alt: 'ENTINGS_SPECIAL', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/lm_metrohotel.svg', alt: 'LM_METROHOTEL', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },  
+    { src: '/icons/partners/phil_mart.svg', alt: 'PHIL_MART', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/above_sealevel.svg', alt: 'ABOVE_SEALEVEL', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/chensanyama.svg', alt: 'CHENSANYAMA', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },  
+    { src: '/icons/partners/cellucrete.svg', alt: 'CELLUCRETE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/datu.svg', alt: 'DATU', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/jmec_trading.svg', alt: 'JMEC_TRADING', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/luna_libro.svg', alt: 'LUNA_LIBRO', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-meta)]' },
+    { src: '/icons/partners/fur_paws.svg', alt: 'FUR_PAWS', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-meta)]' },
+    { src: '/icons/partners/cafe_luke.svg', alt: 'CAFE_LUKE', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-meta)]' },
+    { src: '/icons/partners/irish_beauty.svg', alt: 'IRISH_BEAUTY', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/buddies_point.svg', alt: 'BUDDIES_POINT', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/surigao_pet_doctors.svg', alt: 'SURIGAO_PET_DOCTORS', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/bigj_grocery.svg', alt: 'BIGJ_GROCERY', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/the_celtic.svg', alt: 'THE_CELTIC', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+    { src: '/icons/partners/niv.svg', alt: 'NIV', glowClass: 'hover:drop-shadow-[0_0_20px_var(--glow-primary)]' },
+
   
-  ].map((logo) => ({ ...logo, sizeClass: 'keep-original-color' }));
+  ];
   activeIndex = 0;
   @ViewChild('resultsSlider') resultsSliderRef?: ElementRef<HTMLElement>;
   @ViewChild('slider') sliderRef?: ElementRef<HTMLElement>;
   private resultsAutoScrollTimer: ReturnType<typeof setInterval> | null = null;
   private autoScrollTimer: ReturnType<typeof setInterval> | null = null;
-  private hoverSlideTimer: ReturnType<typeof setInterval> | null = null;
-  private hoverDirection: 'left' | 'right' | null = null;
 
   openImagePreview(src: string, alt: string) {
     this.selectedPreviewImage = { src, alt };
@@ -150,7 +217,6 @@ export class Partners implements AfterViewInit, OnDestroy {
   ngOnDestroy() {
     this.stopResultsAutoScroll();
     this.stopAutoScroll();
-    this.stopHoverSlide();
   }
 
   updateResultsDots(el: HTMLElement) {
@@ -187,24 +253,6 @@ export class Partners implements AfterViewInit, OnDestroy {
     });
   }
 
-  pauseResultsAutoScroll() {
-    this.stopResultsAutoScroll();
-  }
-
-  onResultsMouseLeave() {
-    this.stopHoverSlide();
-    this.startResultsAutoScroll();
-  }
-
-  pauseAutoScroll() {
-    this.stopAutoScroll();
-  }
-
-  onSliderMouseLeave() {
-    this.stopHoverSlide();
-    this.startAutoScroll();
-  }
-
   updateDots(el: HTMLElement) {
     const cardWidth = el.querySelector('div')?.clientWidth || 288; // w-72 is 288px
     const gap = 24; // gap-6 is 24px
@@ -237,47 +285,6 @@ export class Partners implements AfterViewInit, OnDestroy {
       left: normalizedIndex * (cardWidth + gap),
       behavior: 'smooth'
     });
-  }
-
-  handleHoverSlide(event: MouseEvent, el: HTMLElement) {
-    const rect = el.getBoundingClientRect();
-    const pointerX = event.clientX - rect.left;
-    const edgeZone = Math.min(120, rect.width * 0.2);
-
-    if (pointerX <= edgeZone) {
-      this.startHoverSlide('left', el);
-      return;
-    }
-
-    if (pointerX >= rect.width - edgeZone) {
-      this.startHoverSlide('right', el);
-      return;
-    }
-
-    this.stopHoverSlide();
-  }
-
-  startHoverSlide(direction: 'left' | 'right', el: HTMLElement) {
-    if (this.hoverDirection === direction && this.hoverSlideTimer) {
-      return;
-    }
-
-    this.stopHoverSlide();
-    this.hoverDirection = direction;
-    this.slideOneCard(direction, el);
-
-    this.hoverSlideTimer = setInterval(() => {
-      this.slideOneCard(direction, el);
-    }, 700);
-  }
-
-  stopHoverSlide() {
-    if (this.hoverSlideTimer) {
-      clearInterval(this.hoverSlideTimer);
-      this.hoverSlideTimer = null;
-    }
-
-    this.hoverDirection = null;
   }
 
   private startResultsAutoScroll() {
@@ -366,50 +373,4 @@ export class Partners implements AfterViewInit, OnDestroy {
     this.autoScrollTimer = null;
   }
 
-  private slideOneCard(direction: 'left' | 'right', el: HTMLElement) {
-    const cardWidth = el.querySelector('div')?.clientWidth || 288;
-    const gap = 24;
-    const step = cardWidth + gap;
-    const isResultsSlider = el === this.resultsSliderRef?.nativeElement;
-    const isActionSlider = el === this.sliderRef?.nativeElement;
-    const totalCards = isResultsSlider
-      ? this.resultsCards.length
-      : isActionSlider
-        ? this.actionCards.length
-        : 0;
-
-    if (totalCards > 0) {
-      const cycleWidth = totalCards * step;
-
-      if (cycleWidth > 0) {
-        let nextLeft = direction === 'right' ? el.scrollLeft + step : el.scrollLeft - step;
-
-        while (nextLeft < 0) {
-          nextLeft += cycleWidth;
-        }
-
-        while (nextLeft >= cycleWidth) {
-          nextLeft -= cycleWidth;
-        }
-
-        el.scrollTo({
-          left: nextLeft,
-          behavior: 'smooth'
-        });
-        return;
-      }
-    }
-
-    const maxScrollLeft = Math.max(0, el.scrollWidth - el.clientWidth);
-
-    const nextLeft =
-      direction === 'right'
-        ? Math.min(el.scrollLeft + step, maxScrollLeft)
-        : Math.max(el.scrollLeft - step, 0);
-
-    el.scrollTo({
-      left: nextLeft,
-      behavior: 'smooth'
-    });
-  }
 }

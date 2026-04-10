@@ -27,14 +27,14 @@
 .marquee-track {
   @apply flex items-center;
   width: max-content;
-  animation: partners-marquee 28s linear infinite;
+  animation: partners-marquee 80s linear infinite;
   will-change: transform;
 }
 
 .marquee-group {
   @apply flex items-center gap-24;
-  padding-right: 6rem;
   flex-shrink: 0;
+  min-width: max-content;
 }
 
 @keyframes partners-marquee {
@@ -42,12 +42,12 @@
     transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-33.3333%, 0, 0);
   }
 }
 
 .logo-marquee-item {
-  @apply h-16 md:h-20 w-auto opacity-50 brightness-0 invert transition-all duration-500 cursor-pointer hover:brightness-100 hover:invert-0 hover:opacity-100;
+  @apply h-16 md:h-20 w-auto opacity-100 brightness-100 invert-0 transition-all duration-500 cursor-pointer;
 }
 
 .logo-marquee-item.keep-original-color {

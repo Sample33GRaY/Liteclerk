@@ -29,15 +29,36 @@
                 <!-- MarqueeSection -->
                 <!-- The marquee-container handles the background and the edge fading via mask-image -->
                 <div class="marquee-container">
-                    <div class="marquee-track flex gap-24 items-center">
-                        <!-- Loop through logos twice for a seamless infinite loop -->
-                        <ng-container *ngFor="let logo of [...logos, ...logos]">
-                            <img
-                                [src]="logo.src"
-                                [alt]="logo.alt"
-                                [class]="'logo-marquee-item ' + (logo.sizeClass || '') + ' ' + logo.glowClass"
-                            />
-                        </ng-container>
+                    <div class="marquee-track">
+                        <div class="marquee-group">
+                            <ng-container *ngFor="let logo of logos">
+                                <img
+                                    [src]="logo.src"
+                                    [alt]="logo.alt"
+                                    [class]="'logo-marquee-item ' + (logo.sizeClass || '') + ' ' + logo.glowClass"
+                                />
+                            </ng-container>
+                        </div>
+
+                        <div class="marquee-group" aria-hidden="true">
+                            <ng-container *ngFor="let logo of logos">
+                                <img
+                                    [src]="logo.src"
+                                    [alt]="logo.alt"
+                                    [class]="'logo-marquee-item ' + (logo.sizeClass || '') + ' ' + logo.glowClass"
+                                />
+                            </ng-container>
+                        </div>
+
+                        <div class="marquee-group" aria-hidden="true">
+                            <ng-container *ngFor="let logo of logos">
+                                <img
+                                    [src]="logo.src"
+                                    [alt]="logo.alt"
+                                    [class]="'logo-marquee-item ' + (logo.sizeClass || '') + ' ' + logo.glowClass"
+                                />
+                            </ng-container>
+                        </div>
                     </div>
                 </div>
     </div>
@@ -64,10 +85,7 @@ See the tangible impact of our strategies through the diverse businesses we’ve
 
             <!-- Results Slider -->
             <div #resultsSlider
-                 (scroll)="updateResultsDots(resultsSlider)"
-                 (mouseenter)="pauseResultsAutoScroll()"
-                  (mousemove)="handleHoverSlide($event, resultsSlider)"
-                  (mouseleave)="onResultsMouseLeave()"
+                  (scroll)="updateResultsDots(resultsSlider)"
                  class="flex gap-6 overflow-x-auto no-scrollbar justify-start md:justify-start pb-12 pt-4 scroll-smooth mx-auto">
                 <div *ngFor="let card of resultsLoopCards" class="w-64 h-40 md:w-72 md:h-44 rounded-3xl overflow-hidden glass-card group relative shrink-0 flex items-center justify-center">
                     <img [alt]="card.alt" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 cursor-pointer" [src]="card.src" (click)="openImagePreview(card.src, card.alt)"/>
@@ -105,9 +123,6 @@ See the tangible impact of our strategies through the diverse businesses we’ve
         <!-- Updated Slider with (scroll) event and Template Ref #slider -->
            <div #slider 
                (scroll)="updateDots(slider)"
-                             (mouseenter)="pauseAutoScroll()"
-               (mousemove)="handleHoverSlide($event, slider)"
-                             (mouseleave)="onSliderMouseLeave()"
              class="flex gap-6 overflow-x-auto no-scrollbar justify-start md:justify-start pb-12 pt-12 scroll-smooth mx-auto">
                 
             <div *ngFor="let card of actionLoopCards" class="w-64 h-64 md:w-72 md:h-72 rounded-3xl overflow-hidden glass-card group relative shrink-0">
