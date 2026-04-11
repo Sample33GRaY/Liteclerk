@@ -69,6 +69,7 @@ export class Partners implements AfterViewInit, OnDestroy {
     { src: '/Images/team/group4.jpg', alt: 'Team' },
     { src: '/Images/team/group5.jpg', alt: 'Team' },
     { src: '/Images/team/group6.jpg', alt: 'Team' },
+    { src: '/Images/team/group7.jpg', alt: 'Team' },
   ];
   actionLoopCards = [...this.actionCards, ...this.actionCards];
   selectedPreviewImage: { src: string; alt: string } | null = null;

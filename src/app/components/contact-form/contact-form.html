@@ -64,13 +64,21 @@
               required
             ></textarea>
           </div>
-          <div class="pt-4 flex justify-center">
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
-              class="gradient-button px-12 py-3 rounded-full text-black font-bold uppercase tracking-widest text-sm disabled:opacity-60 disabled:cursor-not-allowed hover:brightness-10 transition-all duration-300"
+              class="submit-btn w-full sm:w-auto px-12 py-3 rounded-full font-bold uppercase tracking-widest text-sm disabled:opacity-60 disabled:cursor-not-allowed"
               type="submit"
               [disabled]="contactForm.invalid || isSubmitting"
             >
-              {{ isSubmitting ? 'Opening...' : 'Submit' }}
+              {{ submitMode === 'messenger' ? 'Opening Messenger...' : 'Send through Messenger' }}
+            </button>
+            <button
+              class="submit-btn w-full sm:w-auto px-12 py-3 rounded-full font-bold uppercase tracking-widest text-sm disabled:opacity-60 disabled:cursor-not-allowed"
+              type="button"
+              [disabled]="contactForm.invalid || isSubmitting"
+              (click)="sendThroughGmail(contactForm)"
+            >
+              {{ submitMode === 'gmail' ? 'Sending through Gmail...' : 'Send through Gmail' }}
             </button>
           </div>
           <p class="text-center text-sm text-emerald-400" [class.hidden]="!submitNotice">

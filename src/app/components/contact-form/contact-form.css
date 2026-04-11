@@ -85,6 +85,26 @@
          transition-all duration-300 hover:bg-white/10 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(0,242,195,0.2)];
 }
 
+.submit-btn {
+  @apply bg-gradient-to-r from-primary to-secondary text-slate-900 border border-transparent;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(0, 242, 195, 0.35);
+  filter: brightness(1.05);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.99);
+}
+
+.submit-btn:disabled {
+  cursor: not-allowed;
+}
+
 .gradient-btn {
   background: linear-gradient(135deg, #00f2c3, #00d2ff);
   border: none;
