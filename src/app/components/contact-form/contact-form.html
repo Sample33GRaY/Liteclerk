@@ -64,21 +64,14 @@
               required
             ></textarea>
           </div>
-          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              class="submit-btn w-full sm:w-auto px-12 py-3 rounded-full font-bold uppercase tracking-widest text-sm disabled:opacity-60 disabled:cursor-not-allowed"
-              type="submit"
-              [disabled]="contactForm.invalid || isSubmitting"
-            >
-              {{ submitMode === 'messenger' ? 'Opening Messenger...' : 'Send through Messenger' }}
-            </button>
+          <div class="pt-4 flex items-center justify-center">
             <button
               class="submit-btn w-full sm:w-auto px-12 py-3 rounded-full font-bold uppercase tracking-widest text-sm disabled:opacity-60 disabled:cursor-not-allowed"
               type="button"
               [disabled]="contactForm.invalid || isSubmitting"
-              (click)="sendThroughGmail(contactForm)"
+              (click)="openModal(contactForm)"
             >
-              {{ submitMode === 'gmail' ? 'Sending through Gmail...' : 'Send through Gmail' }}
+              Submit
             </button>
           </div>
           <p class="text-center text-sm text-emerald-400" [class.hidden]="!submitNotice">
@@ -88,6 +81,83 @@
             {{ submitError }}
           </p>
         </form>
+      </div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div 
+      *ngIf="showModal" 
+      class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+      (click)="closeModal()"
+    >
+      <!-- Modal Card -->
+      <div 
+        class="glass-card w-full max-w-2xl p-8 md:p-12 rounded-[32px] relative"
+        (click)="$event.stopPropagation()"
+      >
+        <div class="max-w-xl mx-auto">
+          <h2 class="text-3xl font-bold mb-6 text-secondary text-glow-blue text-center">How would you like to send your form?</h2>
+          
+          <div class="space-y-4">
+            <!-- Messenger Option -->
+            <div class="p-6 border border-white/20 rounded-xl hover:border-primary/50 transition-all duration-300">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0">
+                  <img src="icons/messenger.svg" alt="Messenger" class="h-15 w-15" />
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-bold text-white mb-2">Send through Messenger</h3>
+                  <p class="text-sm text-slate-400 mb-3">
+                    Opens Facebook Messenger where you can send your message directly to our team. Please log in to your Facebook Messenger account first, then paste the copied message and tap send.
+                  </p>
+                  <button
+                    type="button"
+                    class="submit-btn px-6 py-2 rounded-full font-bold uppercase tracking-widest text-xs disabled:opacity-60"
+                    [disabled]="isSubmitting || submitMode === 'messenger'"
+                    (click)="handleMessengerFromModal()"
+                  >
+                    {{ submitMode === 'messenger' ? 'Opening...' : 'Use Messenger' }}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gmail Option -->
+            <div class="p-6 border border-white/20 rounded-xl hover:border-primary/50 transition-all duration-300">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0">
+                  <img src="icons/gmail.svg" alt="Gmail" class="h-15 w-15" />
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-bold text-white mb-2">Send through Gmail</h3>
+                  <p class="text-sm text-slate-400 mb-3">
+                    Sends your form directly to our email system. We'll receive your message and respond to the email address you provided.
+                  </p>
+                  <button
+                    type="button"
+                    class="submit-btn px-6 py-2 rounded-full font-bold uppercase tracking-widest text-xs disabled:opacity-60"
+                    [disabled]="isSubmitting || submitMode === 'gmail'"
+                    (click)="handleGmailFromModal()"
+                  >
+                    {{ submitMode === 'gmail' ? 'Sending...' : 'Use Gmail' }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Close Button -->
+          <div class="mt-6 flex justify-center">
+            <button
+              type="button"
+              class="text-slate-400 hover:text-white transition-colors duration-200 font-semibold cursor-pointer disabled:cursor-not-allowed"
+              (click)="closeModal()"
+              [disabled]="isSubmitting"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

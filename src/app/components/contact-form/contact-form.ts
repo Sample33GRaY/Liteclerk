@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 
 type SubmissionChannel = 'messenger' | 'gmail';
@@ -12,7 +13,7 @@ interface ContactFormValue {
 
 @Component({
   selector: 'app-contact-form',
-  imports: [FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './contact-form.html',
   styleUrl: './contact-form.css',
 })
@@ -21,6 +22,8 @@ export class ContactForm {
   submitMode: SubmissionChannel | null = null;
   submitNotice = '';
   submitError = '';
+  showModal = false;
+  modalForm: NgForm | null = null;
   private readonly pageUsername = 'jiovannesam.clarus';
   private readonly formspreeEndpoint = 'https://formspree.io/f/mgopgznw';
 
@@ -48,6 +51,36 @@ export class ContactForm {
   private finishSubmission(): void {
     this.isSubmitting = false;
     this.submitMode = null;
+  }
+
+  openModal(form: NgForm): void {
+    if (form.invalid) {
+      form.control.markAllAsTouched();
+      return;
+    }
+    this.submitNotice = '';
+    this.submitError = '';
+    this.modalForm = form;
+    this.showModal = true;
+  }
+
+  closeModal(): void {
+    this.showModal = false;
+    this.modalForm = null;
+  }
+
+  async handleMessengerFromModal(): Promise<void> {
+    if (this.modalForm) {
+      await this.sendToMessenger(this.modalForm);
+      this.closeModal();
+    }
+  }
+
+  async handleGmailFromModal(): Promise<void> {
+    if (this.modalForm) {
+      await this.sendThroughGmail(this.modalForm);
+      this.closeModal();
+    }
   }
 
   async sendToMessenger(form: NgForm): Promise<void> {
@@ -78,11 +111,11 @@ export class ContactForm {
         try {
           await navigator.clipboard.writeText(text);
           this.setFormNotice(
-            `Form submitted. Messenger opened for ${this.pageUsername}. Your message has been copied automatically; finish by sending it in Messenger.`,
+            `Form submitted to ${this.pageUsername}. Send the message in Messenger to complete delivery.`,
           );
         } catch {
           this.setFormNotice(
-            `Form submitted. Messenger opened for ${this.pageUsername}. Send the message in Messenger to complete delivery.`,
+            `Form submitted to ${this.pageUsername}. Send the message in Messenger to complete delivery.`,
           );
         }
       } else {
