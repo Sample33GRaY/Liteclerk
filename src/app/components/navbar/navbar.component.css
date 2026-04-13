@@ -122,3 +122,9 @@
     0 0 40px rgba(0, 242, 254, 0.4);
   animation: none; /* Stops the pulse animation while hovering */
 }
+
+@media (max-width: 1024px) {
+  .navbar-faq {
+    display: none;
+  }
+}

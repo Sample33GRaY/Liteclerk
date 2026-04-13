@@ -24,6 +24,22 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
+## Local AI Chat
+
+This project can show a floating chatbox that runs locally through [Ollama](https://ollama.com/). It does not require a paid OpenAI API key.
+
+1. Install Ollama.
+2. Pull a model, for example:
+
+```bash
+ollama pull llama3.2:3b
+```
+
+3. Make sure Ollama is running on `http://127.0.0.1:11434`.
+4. Start the app with `ng serve`.
+
+The app proxies chat messages through `POST /api/chat`, so the browser never talks directly to an external AI service. You can change the model by setting `OLLAMA_MODEL` before starting the server.
+
 ## Code scaffolding
 
 Angular CLI includes powerful code scaffolding tools. To generate a new component, run:

@@ -1,0 +1,73 @@
+<div class="faq-toggle-wrap" [class.closed]="!isOpen">
+  <button
+    type="button"
+    class="faq-fab"
+    (click)="isOpen = !isOpen"
+    [attr.aria-label]="isOpen ? 'Close FAQ chat' : 'Open FAQ chat'"
+  >
+    <img src="icons/liteclerkai.svg" alt="Liteclerk AI" class="faq-fab-image" />
+    <span class="faq-fab-text"> FAQ</span>
+  </button>
+</div>
+
+<section class="faq-chat" [class.open]="isOpen" [class.closed]="!isOpen" aria-label="Liteclerk FAQ Chatbox">
+  <header class="faq-header">
+    <div>
+      <p class="faq-kicker">General Inquiry</p>
+      <h3>Liteclerk Assistant</h3>
+    </div>
+    <button type="button" class="faq-close" (click)="isOpen = false" aria-label="Close chat">x</button>
+  </header>
+
+  <div class="faq-language" role="group" aria-label="Choose language">
+    @for (lang of languageOptions; track lang.code) {
+      <button
+        type="button"
+        class="language-chip"
+        [class.active]="selectedLanguage === lang.code"
+        (click)="setLanguage(lang.code)"
+      >
+        {{ lang.label }}
+      </button>
+    }
+
+    <button
+      type="button"
+      class="faq-language-reset"
+      (click)="resetConversation()"
+      [attr.aria-label]="getResetLabel()"
+      [attr.title]="getResetLabel()"
+    >
+      &#8635;
+    </button>
+  </div>
+
+  <div class="faq-messages" #messagesContainer>
+    @for (message of messages; track $index) {
+      <div class="message-row" [class.user-row]="message.role === 'user'">
+        <div class="chat-bubble" [class.user-bubble]="message.role === 'user'" [class.assistant-bubble]="message.role === 'assistant'">
+          {{ message.text }}
+        </div>
+      </div>
+    }
+
+    <div class="question-list">
+      @for (item of visibleQuickOptions; track item.id) {
+        <button
+          type="button"
+          class="question-chip"
+          (click)="selectQuestion(item.id)"
+        >
+          {{ item.label }}
+        </button>
+      }
+
+      @if (hasHiddenRegularOptions) {
+        <button type="button" class="show-more-btn" (click)="showMoreOptions()">
+          {{ getShowMoreLabel() }}
+        </button>
+      }
+
+    </div>
+  </div>
+</section>

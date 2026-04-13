@@ -24,8 +24,45 @@ export class ContactForm {
   submitError = '';
   showModal = false;
   modalForm: NgForm | null = null;
-  private readonly pageUsername = 'jiovannesam.clarus';
-  private readonly formspreeEndpoint = 'https://formspree.io/f/mgopgznw';
+  private readonly pageUsername = 'liteclerkcorp';
+  private readonly formspreeEndpoint = 'https://formspree.io/f/mnjlaryz';
+
+  private async copyToClipboard(text: string): Promise<boolean> {
+    if (typeof window === 'undefined' || typeof document === 'undefined') {
+      return false;
+    }
+
+    if (navigator.clipboard?.writeText && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(text);
+        return true;
+      } catch {
+        // Fall through to legacy copy strategy.
+      }
+    }
+
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'fixed';
+    textarea.style.top = '-9999px';
+    textarea.style.left = '-9999px';
+    document.body.appendChild(textarea);
+
+    textarea.focus();
+    textarea.select();
+
+    let copied = false;
+    try {
+      copied = document.execCommand('copy');
+    } catch {
+      copied = false;
+    } finally {
+      document.body.removeChild(textarea);
+    }
+
+    return copied;
+  }
 
   private getFormValues(form: NgForm): ContactFormValue {
     const { name, phone, email, message } = form.value as Partial<ContactFormValue>;
@@ -105,17 +142,18 @@ export class ContactForm {
     ].join('\n\n');
 
     if (typeof window !== 'undefined') {
+      const copied = await this.copyToClipboard(text);
       const url = `https://www.facebook.com/messages/t/${this.pageUsername}`;
       const messengerWindow = window.open(url, '_blank');
+
       if (messengerWindow) {
-        try {
-          await navigator.clipboard.writeText(text);
+        if (copied) {
           this.setFormNotice(
-            `Form submitted to ${this.pageUsername}. Send the message in Messenger to complete delivery.`,
+            `Form copied and Messenger opened for ${this.pageUsername}. Paste and send to complete delivery.`,
           );
-        } catch {
+        } else {
           this.setFormNotice(
-            `Form submitted to ${this.pageUsername}. Send the message in Messenger to complete delivery.`,
+            `Messenger opened for ${this.pageUsername}, but auto-copy was blocked by your browser. Copy and send your message manually.`,
           );
         }
       } else {
