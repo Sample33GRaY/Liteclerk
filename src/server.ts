@@ -1,13 +1,6 @@
-import {
-  AngularNodeAppEngine,
-  createNodeRequestHandler,
-  isMainModule,
-  writeResponseToNodeResponse,
-} from '@angular/ssr/node';
-import express from 'express';
-import { join } from 'node:path';
+import { AngularAppEngine, createRequestHandler } from '@angular/ssr';
+import { getContext } from '@netlify/angular-runtime/context.mjs';
 
-const browserDistFolder = join(import.meta.dirname, '../browser');
 const ollamaModel = process.env['OLLAMA_MODEL'] || 'llama3.2:3b';
 const ollamaEndpoint = process.env['OLLAMA_ENDPOINT'] || 'http://127.0.0.1:11434/api/chat';
 const chatSystemPrompt = [
@@ -17,31 +10,19 @@ const chatSystemPrompt = [
   'If a question is outside the website context, say you can only help with Liteclerk information.',
 ].join(' ');
 
-const app = express();
-const angularApp = new AngularNodeAppEngine();
+const angularAppEngine = new AngularAppEngine();
 
-/**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/{*splat}', (req, res) => {
- *   // Handle API request
- * });
- * ```
- */
-
-app.use(express.json());
-
-app.post('/api/chat', async (req, res) => {
-  const incomingMessages = Array.isArray(req.body?.messages) ? req.body.messages : null;
-  const message = typeof req.body?.message === 'string' ? req.body.message.trim() : '';
-  const history = Array.isArray(req.body?.history) ? req.body.history : [];
+async function handleChatRequest(request: Request): Promise<Response> {
+  const body = await request.json().catch(() => ({}));
+  const incomingMessages = Array.isArray(body?.messages) ? body.messages : null;
+  const message = typeof body?.message === 'string' ? body.message.trim() : '';
+  const history = Array.isArray(body?.history) ? body.history : [];
 
   if (!incomingMessages && !message) {
-    res.status(400).json({ message: 'Message is required.' });
-    return;
+    return new Response(JSON.stringify({ message: 'Message is required.' }), {
+      status: 400,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 
   try {
@@ -99,65 +80,51 @@ app.post('/api/chat', async (req, res) => {
     });
 
     if (!response.ok) {
-      res.status(502).json({
-        message: `Unable to reach the local model at ${ollamaEndpoint}. Start Ollama and pull ${ollamaModel}.`,
-      });
-      return;
+      return new Response(
+        JSON.stringify({
+          message: `Unable to reach the local model at ${ollamaEndpoint}. Start Ollama and pull ${ollamaModel}.`,
+        }),
+        {
+          status: 502,
+          headers: { 'Content-Type': 'application/json' },
+        },
+      );
     }
 
     const payload = (await response.json()) as {
       message?: { content?: string };
     };
 
-    res.json({
-      reply: payload.message?.content?.trim() || 'No reply was returned by the local model.',
-    });
+    return new Response(
+      JSON.stringify({
+        reply: payload.message?.content?.trim() || 'No reply was returned by the local model.',
+      }),
+      {
+        headers: { 'Content-Type': 'application/json' },
+      },
+    );
   } catch {
-    res.status(502).json({
-      message: `Local chat is unavailable. Start Ollama and make sure ${ollamaModel} is installed.`,
-    });
+    return new Response(
+      JSON.stringify({
+        message: `Local chat is unavailable. Start Ollama and make sure ${ollamaModel} is installed.`,
+      }),
+      {
+        status: 502,
+        headers: { 'Content-Type': 'application/json' },
+      },
+    );
   }
-});
-
-/**
- * Serve static files from /browser
- */
-app.use(
-  express.static(browserDistFolder, {
-    maxAge: '1y',
-    index: false,
-    redirect: false,
-  }),
-);
-
-/**
- * Handle all other requests by rendering the Angular application.
- */
-app.use((req, res, next) => {
-  angularApp
-    .handle(req)
-    .then((response) =>
-      response ? writeResponseToNodeResponse(response, res) : next(),
-    )
-    .catch(next);
-});
-
-/**
- * Start the server if this module is the main entry point, or it is ran via PM2.
- * The server listens on the port defined by the `PORT` environment variable, or defaults to 4000.
- */
-if (isMainModule(import.meta.url) || process.env['pm_id']) {
-  const port = process.env['PORT'] || 4000;
-  app.listen(port, (error) => {
-    if (error) {
-      throw error;
-    }
-
-    console.log(`Node Express server listening on http://localhost:${port}`);
-  });
 }
 
-/**
- * Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.
- */
-export const reqHandler = createNodeRequestHandler(app);
+export async function netlifyAppEngineHandler(request: Request): Promise<Response> {
+  const context = getContext();
+
+  // Handle the /api/chat endpoint
+  if (request.method === 'POST' && new URL(request.url, 'http://localhost').pathname === '/api/chat') {
+    return handleChatRequest(request);
+  }
+
+  // Handle all other requests with Angular
+  const response = await angularAppEngine.handle(request, context);
+  return response || new Response('Not found', { status: 404 });
+}
