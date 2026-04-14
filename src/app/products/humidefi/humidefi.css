@@ -130,12 +130,13 @@
   width: 4rem;
   height: 4rem;
   object-fit: contain;
-  filter: invert(1) sepia(0.8) saturate(1.5) hue-rotate(310deg) brightness(0.8) contrast(1.1);
-  transition: filter 0.3s ease;
+  filter: invert(47%) sepia(74%) saturate(1920%) hue-rotate(311deg) brightness(102%) contrast(101%) drop-shadow(0 0 12px rgba(255, 71, 126, 0.45));
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 .xode-logo-icon:hover {
-  filter: invert(1) sepia(0.8) saturate(1.5) hue-rotate(310deg) brightness(1) contrast(1.2);
+  filter: invert(47%) sepia(80%) saturate(2100%) hue-rotate(311deg) brightness(108%) contrast(102%) drop-shadow(0 0 18px rgba(255, 71, 126, 0.7));
+  transform: translateY(-1px);
 }
 
 .humidefi-visit-btn {
