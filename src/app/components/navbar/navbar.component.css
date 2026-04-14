@@ -125,6 +125,7 @@
 
 @media (max-width: 1024px) {
   .navbar-faq {
-    display: none;
+    display: inline-flex;
+    flex: 0 0 auto;
   }
 }

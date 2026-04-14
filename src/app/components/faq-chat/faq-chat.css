@@ -237,14 +237,37 @@
 
 @media (max-width: 768px) {
   :host {
+    position: fixed;
+    right: 0.75rem;
+    bottom: 0.9rem;
+    z-index: 90;
+  }
+
+  .faq-fab {
+    padding: 0.42rem 0.7rem;
+    min-width: 2.7rem;
+    min-height: 2.35rem;
+  }
+
+  .faq-fab-image {
     position: static;
+    transform: none;
+    width: 1.4rem;
+    height: 1.4rem;
+    filter: none;
+  }
+
+  .faq-fab-text {
+    display: none;
   }
 
   .faq-chat {
-    right: 0;
-    top: calc(100% + 0.55rem);
+    position: fixed;
+    right: 0.75rem;
+    bottom: calc(0.9rem + 2.35rem + 0.55rem);
+    top: auto;
     width: min(23rem, calc(100vw - 1rem));
-    height: min(30rem, calc(100vh - 7rem));
-    max-height: calc(100vh - 7rem);
+    height: min(30rem, calc(100vh - 6rem));
+    max-height: calc(100vh - 6rem);
   }
 }
