@@ -120,3 +120,24 @@
   background: linear-gradient(to bottom, transparent, #00f2ff, #00ff9c, transparent);
   animation: move-down 10s linear infinite;
 }
+
+@keyframes move-down {
+  0% { transform: translateY(-100vh); }
+  100% { transform: translateY(100vh); }
+}
+
+.corner-glow {
+  @apply absolute -top-24 -left-24 w-[620px] h-[620px] rounded-full pointer-events-none;
+  background:
+    radial-gradient(circle at 32% 36%, rgba(0, 255, 156, 0.22) 0%, rgba(0, 255, 156, 0) 52%),
+    radial-gradient(circle at 66% 44%, rgba(0, 210, 255, 0.18) 0%, rgba(0, 210, 255, 0) 62%);
+  filter: blur(86px);
+  z-index: 0;
+}
+
+.radial-glow {
+  @apply absolute w-[520px] h-[520px] rounded-full pointer-events-none;
+  background: radial-gradient(circle at center, rgba(0, 255, 156, 0.14) 0%, transparent 72%);
+  filter: blur(72px);
+  z-index: 0;
+}

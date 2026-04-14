@@ -180,6 +180,7 @@
   background: linear-gradient(135deg, #00f2c3, #00d2ff);
   border: none;
   color: white; /* Ensures text is readable against the bright gradient */
+  cursor: pointer;
 }
 
 /* Ensure the background image is removed when the parent is hovered */

@@ -12,6 +12,7 @@ import { Mobile} from './products/mobile/mobile';
 import { Syspro } from './products/syspro/syspro';
 import { Fis } from './products/fis/fis';
 import { His } from './products/his/his';
+import { Humidefi } from './products/humidefi/humidefi';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -25,5 +26,6 @@ export const routes: Routes = [
   { path: 'product/mobile', component: Mobile},
   { path: 'product/syspro', component: Syspro },
   { path: 'product/fis', component: Fis},
-  { path: 'product/his', component: His }
+  { path: 'product/his', component: His },
+  { path: 'product/humidefi', component: Humidefi }
 ];
